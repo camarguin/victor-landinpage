@@ -1,5 +1,5 @@
 import React from 'react';
-import victorImg from './assets/victor.png';
+
 
 const App: React.FC = () => {
   const whatsappUrl = "https://wa.me/5561986293939?text=Ol%C3%A1%2C%20preciso%20de%20uma%20defesa%20criminal%20especializada.";
@@ -41,7 +41,7 @@ const App: React.FC = () => {
           <div className="hero-image animate-fade-in-up" style={{ animationDelay: '0.2s', position: 'relative' }}>
             <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '100%', height: '100%', background: 'radial-gradient(circle, var(--accent-muted) 0%, transparent 70%)', opacity: 0.1, zIndex: -1 }}></div>
             <img 
-              src={victorImg} 
+              src="/assets/victor.png" 
               alt="Victor Gerhardt - Advogado Criminalista" 
               style={{ width: '100%', borderRadius: '8px', boxShadow: '0 20px 40px rgba(0,0,0,0.5)', border: '1px solid var(--glass-border)' }}
             />
@@ -108,7 +108,7 @@ const App: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
             <div className="animate-fade-in-up">
               <img 
-                src={victorImg} 
+                src="/assets/victor.png" 
                 alt="Victor Gerhardt" 
                 style={{ width: '100%', borderRadius: '8px', filter: 'grayscale(0.5)' }}
               />
