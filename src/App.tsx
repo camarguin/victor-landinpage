@@ -8,41 +8,40 @@ const App: React.FC = () => {
   return (
     <div className="landing-page">
       {/* Header */}
-      <header style={{ position: 'absolute', width: '100%', zIndex: 10, padding: '2rem 0' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div className="brand" style={{ fontSize: '1.5rem', color: 'var(--accent)' }}>
+      <header style={{ position: 'fixed', width: '100%', zIndex: 10, padding: '1.25rem 0', background: 'rgba(10,10,10,0.85)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', borderBottom: '1px solid var(--glass-border)' }}>
+        <div className="container header-inner">
+          <div className="brand" style={{ fontSize: '1.25rem', color: 'var(--accent)' }}>
             Victor Gerhardt
-            <span style={{ display: 'block', fontSize: '0.6rem', color: 'var(--text-muted)', letterSpacing: '2px' }}>Advocacia Criminal</span>
+            <span style={{ display: 'block', fontSize: '0.55rem', color: 'var(--text-muted)', letterSpacing: '2px' }}>Advocacia Criminal</span>
           </div>
-          <nav className="desktop-only" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-             <a href="#atuacao" className="nav-link" style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Áreas</a>
-             <a href="#sobre" className="nav-link" style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>O Advogado</a>
-             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.6rem 1.2rem' }}>Emergência 24h</a>
+          <nav className="desktop-only" style={{ gap: '2rem', alignItems: 'center' }}>
+            <a href="#atuacao" className="nav-link" style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)' }}>Áreas</a>
+            <a href="#sobre" className="nav-link" style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)' }}>O Advogado</a>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.6rem 1.2rem', minHeight: '40px', fontSize: '0.75rem' }}>Emergência 24h</a>
           </nav>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="hero-section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', alignItems: 'center', gap: '4rem', zIndex: 2, paddingTop: '4rem' }}>
-          <div className="hero-content animate-fade-in-up">
-            <span className="text-accent" style={{ fontWeight: 700, letterSpacing: '3px', fontSize: '0.9rem', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>Uberlândia - MG</span>
-            <h1 style={{ fontSize: '3.5rem', lineHeight: 1.1, marginBottom: '1.5rem', color: 'var(--white)' }}>
+      <section className="hero-section">
+        <div className="container hero-grid animate-fade-in-up">
+          <div className="hero-content">
+            <span className="hero-eyebrow">Uberlândia - MG</span>
+            <h1 className="hero-title">
               Defesa Criminal <span className="text-accent">Estratégica</span> em Uberlândia.
             </h1>
-            <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', marginBottom: '2.5rem', maxWidth: '500px' }}>
+            <p className="hero-subtitle">
               Atuação imediata 24h em flagrantes, audiências de custódia e processos criminais complexos. Sua liberdade sob proteção especializada.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="hero-cta">
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Falar com Especialista Agora</a>
               <a href="#atuacao" className="btn btn-outline">Ver Áreas de Atuação</a>
             </div>
           </div>
-          <div className="hero-image animate-fade-in-up" style={{ animationDelay: '0.2s', position: 'relative' }}>
-            <div style={{ position: 'absolute', top: '-10%', right: '-10%', width: '100%', height: '100%', background: 'radial-gradient(circle, var(--accent-muted) 0%, transparent 70%)', opacity: 0.1, zIndex: -1 }}></div>
-            <img 
-              src="/assets/victor.png" 
-              alt="Victor Gerhardt - Advogado Criminalista" 
+          <div className="hero-image animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            <img
+              src="/assets/victor.png"
+              alt="Victor Gerhardt - Advogado Criminalista"
               style={{ width: '100%', borderRadius: '8px', boxShadow: '0 20px 40px rgba(0,0,0,0.5)', border: '1px solid var(--glass-border)' }}
             />
           </div>
@@ -50,10 +49,10 @@ const App: React.FC = () => {
       </section>
 
       {/* Urgency Section */}
-      <section className="urgency-section section-padding" style={{ background: 'var(--secondary)' }}>
+      <section className="section-padding" style={{ background: 'var(--secondary)' }}>
         <div className="container">
-          <div className="text-center animate-fade-in-up" style={{ marginBottom: '4rem' }}>
-            <h2 style={{ marginBottom: '1rem' }}>Precisa de ajuda agora?</h2>
+          <div className="urgency-intro animate-fade-in-up">
+            <h2>Precisa de ajuda agora?</h2>
             <p className="text-muted">Acione nosso plantão criminal especializado 24h em Uberlândia e região.</p>
           </div>
           <div className="grid-3">
@@ -64,12 +63,12 @@ const App: React.FC = () => {
               { title: "Busca e Apreensão?", desc: "Garantia de direitos contra abusos de autoridade." }
             ].map((item, index) => (
               <div key={index} className="glass-card animate-fade-in-up" style={{ animationDelay: `${0.1 * index}s` }}>
-                <h3 style={{ fontSize: '1.2rem', marginBottom: '1rem', color: 'var(--accent)' }}>{item.title}</h3>
+                <h3 style={{ marginBottom: '0.75rem', color: 'var(--accent)' }}>{item.title}</h3>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>{item.desc}</p>
               </div>
             ))}
           </div>
-          <div className="text-center" style={{ marginTop: '3rem' }}>
+          <div className="urgency-cta">
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ backgroundColor: '#d93025', color: 'white' }}>
               Acionar Plantão Criminal Agora
             </a>
@@ -80,9 +79,9 @@ const App: React.FC = () => {
       {/* Areas of Action */}
       <section id="atuacao" className="section-padding">
         <div className="container">
-          <div className="text-center animate-fade-in-up" style={{ marginBottom: '4rem' }}>
-            <h2 style={{ marginBottom: '1rem' }}>Áreas de Atuação Especializada</h2>
-            <div style={{ width: '60px', height: '3px', background: 'var(--accent)', margin: '0 auto' }}></div>
+          <div className="section-header animate-fade-in-up">
+            <h2>Áreas de Atuação Especializada</h2>
+            <div className="section-divider"></div>
           </div>
           <div className="grid-3">
             {[
@@ -94,7 +93,7 @@ const App: React.FC = () => {
               { title: "Direito Penal Econômico", desc: "Defesa em crimes tributários, lavagem de dinheiro e corrupção." }
             ].map((area, index) => (
               <div key={index} className="glass-card animate-fade-in-up" style={{ animationDelay: `${0.1 * index}s`, textAlign: 'center' }}>
-                <h3 style={{ fontSize: '1.1rem', marginBottom: '1rem' }}>{area.title}</h3>
+                <h3 style={{ marginBottom: '0.75rem' }}>{area.title}</h3>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{area.desc}</p>
               </div>
             ))}
@@ -105,34 +104,34 @@ const App: React.FC = () => {
       {/* Authority Section */}
       <section id="sobre" className="section-padding" style={{ background: 'var(--secondary)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-            <div className="animate-fade-in-up">
-              <img 
-                src="/assets/victor.png" 
-                alt="Victor Gerhardt" 
+          <div className="about-grid">
+            <div className="about-image animate-fade-in-up">
+              <img
+                src="/assets/victor.png"
+                alt="Victor Gerhardt"
                 style={{ width: '100%', borderRadius: '8px', filter: 'grayscale(0.5)' }}
               />
             </div>
-            <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <h2 style={{ marginBottom: '1.5rem' }}>Por que escolher <br/><span className="text-accent">Victor Gerhardt?</span></h2>
-              <p style={{ marginBottom: '1.5rem', color: 'var(--text-muted)' }}>
+            <div className="about-content animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+              <h2 style={{ marginBottom: '1.25rem' }}>Por que escolher <br/><span className="text-accent">Victor Gerhardt?</span></h2>
+              <p style={{ marginBottom: '1.25rem', color: 'var(--text-muted)', fontSize: '0.95rem' }}>
                 Atuação focada no rigor técnico e no atendimento humanizado. Conhecimento profundo da realidade jurídica de Uberlândia e região, garantindo que nenhum direito do cliente seja violado pelas autoridades.
               </p>
-              <p style={{ marginBottom: '2rem', color: 'var(--text-muted)' }}>
+              <p style={{ marginBottom: '1.5rem', color: 'var(--text-muted)', fontSize: '0.95rem' }}>
                 Cada caso é tratado com sigilo absoluto e estratégia personalizada, buscando sempre o melhor resultado jurídico através de uma defesa técnica e combativa.
               </p>
-              <div style={{ display: 'flex', gap: '1.5rem' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <div className="text-accent" style={{ fontSize: '2rem', fontWeight: 700 }}>24h</div>
-                  <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Disponibilidade</div>
+              <div className="about-stats">
+                <div className="stat-item">
+                  <div className="stat-value">24h</div>
+                  <div className="stat-label">Disponibilidade</div>
                 </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div className="text-accent" style={{ fontSize: '2rem', fontWeight: 700 }}>+500</div>
-                  <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Casos Atendidos</div>
+                <div className="stat-item">
+                  <div className="stat-value">+500</div>
+                  <div className="stat-label">Casos Atendidos</div>
                 </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div className="text-accent" style={{ fontSize: '2rem', fontWeight: 700 }}>Triângulo</div>
-                  <div style={{ fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Atuação Regional</div>
+                <div className="stat-item">
+                  <div className="stat-value" style={{ fontSize: '1.2rem' }}>Triângulo</div>
+                  <div className="stat-label">Atuação Regional</div>
                 </div>
               </div>
             </div>
@@ -142,15 +141,15 @@ const App: React.FC = () => {
 
       {/* Footer */}
       <footer className="section-padding" style={{ background: 'var(--primary)', borderTop: '1px solid var(--glass-border)' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '3rem' }}>
+        <div className="container footer-grid">
           <div>
-            <div className="brand" style={{ fontSize: '1.2rem', color: 'var(--accent)', marginBottom: '1rem' }}>Victor Gerhardt</div>
+            <div className="brand" style={{ fontSize: '1.1rem', color: 'var(--accent)', marginBottom: '0.75rem' }}>Victor Gerhardt</div>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
               Advocacia Criminal Especializada em Uberlândia e Região. Defesa técnica, ética e sigilosa.
             </p>
           </div>
           <div>
-            <h4 style={{ fontSize: '0.9rem', marginBottom: '1.5rem', color: 'var(--white)' }}>Contato</h4>
+            <h4 style={{ fontSize: '0.9rem', marginBottom: '1rem', color: 'var(--white)' }}>Contato</h4>
             <ul style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
               <li style={{ marginBottom: '0.5rem' }}>WhatsApp: (61) 98629-3939</li>
               <li style={{ marginBottom: '0.5rem' }}>Instagram: @victorgerhardt</li>
@@ -158,7 +157,7 @@ const App: React.FC = () => {
             </ul>
           </div>
           <div>
-            <h4 style={{ fontSize: '0.9rem', marginBottom: '1.5rem', color: 'var(--white)' }}>Links Úteis</h4>
+            <h4 style={{ fontSize: '0.9rem', marginBottom: '1rem', color: 'var(--white)' }}>Links Úteis</h4>
             <ul style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
               <li style={{ marginBottom: '0.5rem' }}><a href={instagramUrl} target="_blank" rel="noopener noreferrer">Acompanhe no Instagram</a></li>
               <li style={{ marginBottom: '0.5rem' }}><a href={whatsappUrl} target="_blank" rel="noopener noreferrer">Falar com Advogado</a></li>
@@ -166,9 +165,9 @@ const App: React.FC = () => {
             </ul>
           </div>
         </div>
-        <div className="container" style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+        <div className="container" style={{ marginTop: '3rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
           <p style={{ fontSize: '0.7rem', color: '#555' }}>
-            &copy; {new Date().getFullYear()} Victor Gerhardt Advocacia. Todos os direitos reservados. 
+            &copy; {new Date().getFullYear()} Victor Gerhardt Advocacia. Todos os direitos reservados.
             Desenvolvido para alta conversão em Uberlândia-MG.
           </p>
         </div>

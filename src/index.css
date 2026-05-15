@@ -21,6 +21,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Prevent font size inflation on mobile */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -43,6 +46,8 @@ a {
   text-decoration: none;
   color: inherit;
   transition: var(--transition);
+  /* Minimum touch target size for mobile */
+  -webkit-tap-highlight-color: transparent;
 }
 
 ul {
@@ -54,14 +59,16 @@ img {
   display: block;
 }
 
-/* Glassmorphism */
+/* =====================
+   GLASSMORPHISM CARDS
+===================== */
 .glass-card {
   background: var(--glass);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.5rem;
   transition: var(--transition);
 }
 
@@ -71,12 +78,14 @@ img {
   transform: translateY(-5px);
 }
 
-/* Buttons */
+/* =====================
+   BUTTONS
+===================== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
+  padding: 1rem 1.75rem;
   border-radius: 4px;
   font-weight: 600;
   text-transform: uppercase;
@@ -85,7 +94,10 @@ img {
   transition: var(--transition);
   border: none;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  /* Touch-friendly */
+  min-height: 48px;
+  white-space: nowrap;
 }
 
 .btn-primary {
@@ -93,9 +105,10 @@ img {
   color: var(--primary);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:active {
   background-color: var(--white);
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .btn-outline {
@@ -104,12 +117,15 @@ img {
   color: var(--accent);
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline:active {
   background: var(--accent);
   color: var(--primary);
 }
 
-/* Animations */
+/* =====================
+   ANIMATIONS
+===================== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -131,10 +147,13 @@ img {
   100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
+/* =====================
+   WHATSAPP FLOAT
+===================== */
 .whatsapp-float {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 24px;
+  right: 20px;
   width: 60px;
   height: 60px;
   background-color: #25d366;
@@ -149,15 +168,18 @@ img {
   animation: pulse 2s infinite;
 }
 
-/* Layout Utilities */
+/* =====================
+   LAYOUT UTILITIES
+===================== */
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
 }
 
 .section-padding {
-  padding: 6rem 0;
+  padding: 4rem 0;
 }
 
 .text-accent {
@@ -168,19 +190,314 @@ img {
   text-align: center;
 }
 
-/* Grid Layouts */
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* =====================
+   GRID LAYOUTS
+===================== */
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero-section {
+  min-height: 100svh; /* Use svh for better mobile support */
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 5rem;
+  padding-bottom: 2.5rem;
+  width: 100%;
+  z-index: 2;
+}
+
+.hero-content {
+  text-align: center;
+  width: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 340px;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+  color: var(--accent);
+}
+
+.hero-title {
+  font-size: 2rem;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  color: var(--white);
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.hero-cta .btn {
+  width: 100%;
+  max-width: 340px;
+}
+
+/* =====================
+   ABOUT SECTION GRID
+===================== */
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 360px;
+}
+
+.about-content {
+  width: 100%;
+}
+
+.about-stats {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+  min-width: 80px;
+}
+
+.stat-value {
+  color: var(--accent);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+/* =====================
+   FOOTER GRID
+===================== */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .section-padding {
-    padding: 4rem 0;
+/* =====================
+   HEADER / NAV
+===================== */
+.desktop-only {
+  display: none;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =====================
+   SECTION HEADINGS
+===================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-header h2 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.section-divider {
+  width: 50px;
+  height: 3px;
+  background: var(--accent);
+  margin: 0 auto;
+}
+
+/* =====================
+   URGENCY SECTION
+===================== */
+.urgency-intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.urgency-intro h2 {
+  margin-bottom: 0.75rem;
+  font-size: 1.6rem;
+}
+
+.urgency-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.urgency-cta .btn {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* =====================
+   MOBILE TYPOGRAPHY
+===================== */
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.1rem; }
+
+/* =====================
+   TABLET (≥ 640px)
+===================== */
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
   }
-  
-  h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.8rem; }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .hero-cta {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .hero-cta .btn {
+    width: auto;
+  }
+
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 1.9rem; }
+
+  .hero-title { font-size: 2.6rem; }
+  .section-header h2 { font-size: 1.9rem; }
+  .urgency-intro h2 { font-size: 1.9rem; }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =====================
+   DESKTOP (≥ 1024px)
+===================== */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .section-padding {
+    padding: 6rem 0;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .desktop-only {
+    display: flex;
+  }
+
+  /* Hero: side-by-side on desktop */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding-top: 6rem;
+    padding-bottom: 0;
+  }
+
+  .hero-content {
+    text-align: left;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .hero-cta {
+    justify-content: flex-start;
+  }
+
+  .hero-title { font-size: 3.5rem; }
+  h1 { font-size: 3.5rem; }
+  h2 { font-size: 2.5rem; }
+  .section-header h2 { font-size: 2.5rem; }
+  .urgency-intro h2 { font-size: 2.5rem; }
+
+  .hero-subtitle {
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.1rem;
+  }
+
+  /* About: side-by-side */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-image {
+    max-width: 100%;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  .glass-card {
+    padding: 2rem;
+  }
 }
